@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NewDomainsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbAlexa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Domain" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbDomainsFromSrc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Domain" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tld" Type="nvarchar" MaxLength="50" />
+          <Property Name="Length" Type="nvarchar" MaxLength="50" />
+          <Property Name="Source" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IdInSource" Type="nvarchar" MaxLength="40" />
+          <Property Name="ExpDate" Type="nvarchar" MaxLength="40" />
+          <Property Name="Price" Type="nvarchar" MaxLength="40" />
+          <Property Name="Age" Type="nvarchar" MaxLength="40" />
+          <Property Name="SrcFile" Type="nvarchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="tbGooglePR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Domain" Type="nvarchar" MaxLength="100" />
+          <Property Name="GooglePR" Type="int" />
+          <Property Name="BackLinks" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Dmoz" Type="bit" />
+          <Property Name="Archive" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NewDomains.dbo.tbNames' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbNames">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Type" Type="smallint" />
+        </EntityType>
+        <EntityType Name="tbNewDomains">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Domain" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tld" Type="nvarchar" MaxLength="50" />
+          <Property Name="Source" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="ExpDate" Type="real" />
+          <Property Name="Price" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Length" Type="int" />
+          <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpD" Type="date" />
+          <Property Name="Alexa" Type="int" />
+          <Property Name="Visits" Type="int" />
+          <Property Name="GooglePR" Type="int" />
+          <Property Name="BackLinks" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="NameShown" Type="nvarchar" MaxLength="100" />
+          <Property Name="NameWords" Type="nvarchar" MaxLength="100" />
+          <Property Name="WordCount" Type="int" />
+          <Property Name="KeywordSearches" Type="int" />
+          <Property Name="Cpc" Type="int" />
+          <Property Name="Competition" Type="int" />
+          <Property Name="DB" Type="smallint" />
+          <Property Name="DFI" Type="int" />
+          <Property Name="Dmoz" Type="bit" />
+          <Property Name="Archive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbSources">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="SrcFile" Type="int" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="SrcLink" Type="varchar" MaxLength="100" />
+          <Property Name="SrcSite" Type="varchar" MaxLength="100" />
+          <Property Name="Src" Type="int" />
+          <Property Name="SrcName" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbSplit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DomID" Type="int" />
+          <Property Name="NameWords" Type="nvarchar" MaxLength="100" />
+          <Property Name="NameShown" Type="nvarchar" MaxLength="100" />
+          <Property Name="WordCount" Type="int" />
+        </EntityType>
+        <EntityType Name="tbSrc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="CreateDomainsTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="NewDomainsModelStoreContainer">
+          <EntitySet Name="tbAlexa" EntityType="Self.tbAlexa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbDomainsFromSrc" EntityType="Self.tbDomainsFromSrc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbGooglePR" EntityType="Self.tbGooglePR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNewDomains" EntityType="Self.tbNewDomains" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbSources" EntityType="Self.tbSources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbSplit" EntityType="Self.tbSplit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbSrc" EntityType="Self.tbSrc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbStatus" EntityType="Self.tbStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbNames" EntityType="Self.tbNames" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbNames].[Id] AS [Id], 
+    [tbNames].[Name] AS [Name], 
+    [tbNames].[Type] AS [Type]
+    FROM [dbo].[tbNames] AS [tbNames]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NewDomainsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbGooglePR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Domain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GooglePR" Type="Int32" />
+          <Property Name="BackLinks" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Dmoz" Type="Boolean" />
+          <Property Name="Archive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbSource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SrcFile" Type="Int32" />
+          <Property Name="SrcLink" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SrcSite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Src" Type="Int32" />
+          <Property Name="SrcName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DomainsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbGooglePRs" EntityType="Self.tbGooglePR" />
+          <EntitySet Name="tbSources" EntityType="Self.tbSource" />
+          <FunctionImport Name="CreateDomainsTable" />
+          <FunctionImport Name="CreateDomainsTableWithCnt" ReturnType="Collection(Int32)" />
+          <EntitySet Name="tbAlexas" EntityType="NewDomainsModel.tbAlexa" />
+          <EntitySet Name="tbSplits" EntityType="NewDomainsModel.tbSplit" />
+          <EntitySet Name="tbSrcs" EntityType="NewDomainsModel.tbSrc" />
+          <EntitySet Name="tbStatus" EntityType="NewDomainsModel.tbStatu" />
+          <EntitySet Name="tbDomainsFromSrcs" EntityType="NewDomainsModel.tbDomainsFromSrc" />
+          <EntitySet Name="tbNewDomains" EntityType="NewDomainsModel.tbNewDomain" />
+        </EntityContainer>
+        <EntityType Name="tbAlexa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Domain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbSplit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomID" Type="Int32" />
+          <Property Name="NameWords" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NameShown" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WordCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbSrc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbDomainsFromSrc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Domain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tld" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IdInSource" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ExpDate" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="SrcFile" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbNewDomain">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Domain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tld" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="ExpDate" Type="Single" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Length" Type="Int32" />
+          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpD" Type="DateTime" Precision="0" />
+          <Property Name="Alexa" Type="Int32" />
+          <Property Name="Visits" Type="Int32" />
+          <Property Name="GooglePR" Type="Int32" />
+          <Property Name="BackLinks" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="NameShown" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NameWords" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WordCount" Type="Int32" />
+          <Property Name="KeywordSearches" Type="Int32" />
+          <Property Name="Cpc" Type="Int32" />
+          <Property Name="Competition" Type="Int32" />
+          <Property Name="DB" Type="Int16" />
+          <Property Name="DFI" Type="Int32" />
+          <Property Name="Dmoz" Type="Boolean" />
+          <Property Name="Archive" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NewDomainsModelStoreContainer" CdmEntityContainer="DomainsEntities">
+          <EntitySetMapping Name="tbGooglePRs">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbGooglePR">
+              <MappingFragment StoreEntitySet="tbGooglePR">
+                <ScalarProperty Name="Archive" ColumnName="Archive" />
+                <ScalarProperty Name="Dmoz" ColumnName="Dmoz" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="GooglePR" ColumnName="GooglePR" />
+                <ScalarProperty Name="BackLinks" ColumnName="BackLinks" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbSources">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbSource">
+              <MappingFragment StoreEntitySet="tbSources">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SrcFile" ColumnName="SrcFile" />
+                <ScalarProperty Name="SrcLink" ColumnName="SrcLink" />
+                <ScalarProperty Name="SrcSite" ColumnName="SrcSite" />
+                <ScalarProperty Name="Src" ColumnName="Src" />
+                <ScalarProperty Name="SrcName" ColumnName="SrcName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CreateDomainsTable" FunctionName="NewDomainsModel.Store.CreateDomainsTable" />
+          <FunctionImportMapping FunctionImportName="CreateDomainsTableWithCnt" FunctionName="NewDomainsModel.Store.CreateDomainsTable" />
+          <EntitySetMapping Name="tbAlexas">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbAlexa">
+              <MappingFragment StoreEntitySet="tbAlexa">
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbSplits">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbSplit">
+              <MappingFragment StoreEntitySet="tbSplit">
+                <ScalarProperty Name="WordCount" ColumnName="WordCount" />
+                <ScalarProperty Name="NameShown" ColumnName="NameShown" />
+                <ScalarProperty Name="NameWords" ColumnName="NameWords" />
+                <ScalarProperty Name="DomID" ColumnName="DomID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbSrcs">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbSrc">
+              <MappingFragment StoreEntitySet="tbSrc">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbStatus">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbStatu">
+              <MappingFragment StoreEntitySet="tbStatus">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbDomainsFromSrcs">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbDomainsFromSrc">
+              <MappingFragment StoreEntitySet="tbDomainsFromSrc">
+                <ScalarProperty Name="SrcFile" ColumnName="SrcFile" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+                <ScalarProperty Name="IdInSource" ColumnName="IdInSource" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Tld" ColumnName="Tld" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbNewDomains">
+            <EntityTypeMapping TypeName="NewDomainsModel.tbNewDomain">
+              <MappingFragment StoreEntitySet="tbNewDomains">
+                <ScalarProperty Name="Archive" ColumnName="Archive" />
+                <ScalarProperty Name="Dmoz" ColumnName="Dmoz" />
+                <ScalarProperty Name="DFI" ColumnName="DFI" />
+                <ScalarProperty Name="DB" ColumnName="DB" />
+                <ScalarProperty Name="Competition" ColumnName="Competition" />
+                <ScalarProperty Name="Cpc" ColumnName="Cpc" />
+                <ScalarProperty Name="KeywordSearches" ColumnName="KeywordSearches" />
+                <ScalarProperty Name="WordCount" ColumnName="WordCount" />
+                <ScalarProperty Name="NameWords" ColumnName="NameWords" />
+                <ScalarProperty Name="NameShown" ColumnName="NameShown" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="BackLinks" ColumnName="BackLinks" />
+                <ScalarProperty Name="GooglePR" ColumnName="GooglePR" />
+                <ScalarProperty Name="Visits" ColumnName="Visits" />
+                <ScalarProperty Name="Alexa" ColumnName="Alexa" />
+                <ScalarProperty Name="ExpD" ColumnName="ExpD" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Tld" ColumnName="Tld" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
