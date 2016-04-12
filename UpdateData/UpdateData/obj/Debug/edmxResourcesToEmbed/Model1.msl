@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NewDomainsModelStoreContainer" CdmEntityContainer="DomainsEntities">
+    <EntitySetMapping Name="tbGooglePRs">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbGooglePR">
+        <MappingFragment StoreEntitySet="tbGooglePR">
+          <ScalarProperty Name="Archive" ColumnName="Archive" />
+          <ScalarProperty Name="Dmoz" ColumnName="Dmoz" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="GooglePR" ColumnName="GooglePR" />
+          <ScalarProperty Name="BackLinks" ColumnName="BackLinks" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbSources">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbSource">
+        <MappingFragment StoreEntitySet="tbSources">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SrcFile" ColumnName="SrcFile" />
+          <ScalarProperty Name="SrcLink" ColumnName="SrcLink" />
+          <ScalarProperty Name="SrcSite" ColumnName="SrcSite" />
+          <ScalarProperty Name="Src" ColumnName="Src" />
+          <ScalarProperty Name="SrcName" ColumnName="SrcName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CreateDomainsTable" FunctionName="NewDomainsModel.Store.CreateDomainsTable" />
+    <FunctionImportMapping FunctionImportName="CreateDomainsTableWithCnt" FunctionName="NewDomainsModel.Store.CreateDomainsTable" />
+    <EntitySetMapping Name="tbAlexas">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbAlexa">
+        <MappingFragment StoreEntitySet="tbAlexa">
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbSplits">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbSplit">
+        <MappingFragment StoreEntitySet="tbSplit">
+          <ScalarProperty Name="WordCount" ColumnName="WordCount" />
+          <ScalarProperty Name="NameShown" ColumnName="NameShown" />
+          <ScalarProperty Name="NameWords" ColumnName="NameWords" />
+          <ScalarProperty Name="DomID" ColumnName="DomID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbSrcs">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbSrc">
+        <MappingFragment StoreEntitySet="tbSrc">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbStatus">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbStatu">
+        <MappingFragment StoreEntitySet="tbStatus">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDomainsFromSrcs">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbDomainsFromSrc">
+        <MappingFragment StoreEntitySet="tbDomainsFromSrc">
+          <ScalarProperty Name="SrcFile" ColumnName="SrcFile" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="IdInSource" ColumnName="IdInSource" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Tld" ColumnName="Tld" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbNewDomains">
+      <EntityTypeMapping TypeName="NewDomainsModel.tbNewDomain">
+        <MappingFragment StoreEntitySet="tbNewDomains">
+          <ScalarProperty Name="Archive" ColumnName="Archive" />
+          <ScalarProperty Name="Dmoz" ColumnName="Dmoz" />
+          <ScalarProperty Name="DFI" ColumnName="DFI" />
+          <ScalarProperty Name="DB" ColumnName="DB" />
+          <ScalarProperty Name="Competition" ColumnName="Competition" />
+          <ScalarProperty Name="Cpc" ColumnName="Cpc" />
+          <ScalarProperty Name="KeywordSearches" ColumnName="KeywordSearches" />
+          <ScalarProperty Name="WordCount" ColumnName="WordCount" />
+          <ScalarProperty Name="NameWords" ColumnName="NameWords" />
+          <ScalarProperty Name="NameShown" ColumnName="NameShown" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="BackLinks" ColumnName="BackLinks" />
+          <ScalarProperty Name="GooglePR" ColumnName="GooglePR" />
+          <ScalarProperty Name="Visits" ColumnName="Visits" />
+          <ScalarProperty Name="Alexa" ColumnName="Alexa" />
+          <ScalarProperty Name="ExpD" ColumnName="ExpD" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ExpDate" ColumnName="ExpDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Tld" ColumnName="Tld" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Domain" ColumnName="Domain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
