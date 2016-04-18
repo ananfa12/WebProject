@@ -34,7 +34,7 @@ namespace UpdateData
                         sqlConnection.Open();
                         if (withTruncate)
                         {
-                            var _truncateCommand = @"TRUNCATE TABLE tbAlexa";
+                            var _truncateCommand = @"TRUNCATE TABLE Domains";
                             // Truncate the Alexa table
                             using (var sqlCommand = new SqlCommand(_truncateCommand, sqlConnection))
                             {
@@ -45,10 +45,10 @@ namespace UpdateData
                         // Create the bulk copy object
                         var sqlBulkCopy = new SqlBulkCopy(sqlConnection)
                         {
-                            DestinationTableName = "tbAlexa"
+                            DestinationTableName = "Domains"
                         };
+                        sqlBulkCopy.ColumnMappings.Add("Id", "Id");
                         sqlBulkCopy.ColumnMappings.Add("Domain", "Domain");
-
                         var createdCount = 0;
                         while (!textFieldParser.EndOfData)
                         {

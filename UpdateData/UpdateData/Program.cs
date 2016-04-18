@@ -58,7 +58,7 @@ namespace UpdateData
                         break;
                     case 4:
                         // 4-update Alexa top 1M
-                        Console.WriteLine("********** Importing Alexa top 1M sites ...");
+                        Console.WriteLine("********** Importing Snapnames domain from site ...");
                         GetAlexa();
                         break;
                     case 5:
@@ -92,7 +92,7 @@ namespace UpdateData
             Console.WriteLine("1 - download and create csv files");
             Console.WriteLine("2 - recreate src domain table");
             Console.WriteLine("3 - import GPR, BL, Y ");
-            Console.WriteLine("4 - update Alexa top 1M");
+            Console.WriteLine("4 - Importe Snapnames domain from site");
             Console.WriteLine("5 - create domains master table");
             Console.WriteLine("6 - english words");
             Console.WriteLine("7 - execute all");
@@ -366,16 +366,18 @@ namespace UpdateData
         private static void GetAlexa()
         {
             var t1 = DateTime.Now;
-            WebClient Client = new WebClient();
+            //WebClient Client = new WebClient();
             var d = new DirectoryInfo(defaultResFolder).Parent.FullName;
-            var curDest = string.Format("{0}\\alexa.zip", d);
-            Client.DownloadFile(alexaSource, curDest);
+            //var curDest = string.Format("{0}\\alexa.zip", d);
+            //Client.DownloadFile(alexaSource, curDest);
             DataProcessor processor = new DataProcessor();
+            //var res = processor.unzip(curDest);
+            var curDest = string.Format("{0}\\alexa.zip", d);
             var res = processor.unzip(curDest);
             var bc = new CsvBulkCopyDataIntoSqlServer();
             bc.UpdateAlexaTable(res,true);
             var tm1 = Math.Floor(DateTime.Now.Subtract(t1).TotalSeconds).ToString();
-            Console.WriteLine("Alexa top 1M is imported to DB in {0} sec", tm1);
+            Console.WriteLine("Snapnames domains importined from site to DB in {0} sec", tm1);
         }
         
 

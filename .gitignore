@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/UpdateData/UpdateData/bin/Debug/MySql.Web.dll
+/UpdateData/UpdateData/bin/Debug/MySql.Data.dll
+/UpdateData/UpdateData/bin/Debug
+/UpdateData/alexa.txt
+/UpdateData/.vs/UpdateData/v14/.suo
+/UpdateData/.vs/UpdateData/v14
+/UpdateData
