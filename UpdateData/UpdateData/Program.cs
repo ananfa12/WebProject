@@ -366,13 +366,11 @@ namespace UpdateData
         private static void GetAlexa()
         {
             var t1 = DateTime.Now;
-            //WebClient Client = new WebClient();
+            WebClient Client = new WebClient();
             var d = new DirectoryInfo(defaultResFolder).Parent.FullName;
-            //var curDest = string.Format("{0}\\alexa.zip", d);
-            //Client.DownloadFile(alexaSource, curDest);
-            DataProcessor processor = new DataProcessor();
-            //var res = processor.unzip(curDest);
             var curDest = string.Format("{0}\\alexa.zip", d);
+            Client.DownloadFile(alexaSource, curDest);
+            DataProcessor processor = new DataProcessor();
             var res = processor.unzip(curDest);
             var bc = new CsvBulkCopyDataIntoSqlServer();
             bc.UpdateAlexaTable(res,true);
