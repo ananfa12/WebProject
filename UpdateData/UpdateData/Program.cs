@@ -92,7 +92,7 @@ namespace UpdateData
             Console.WriteLine("1 - download and create csv files");
             Console.WriteLine("2 - recreate src domain table");
             Console.WriteLine("3 - import GPR, BL, Y ");
-            Console.WriteLine("4 - Importe Snapnames domain from site");
+            Console.WriteLine("4 - Importe Snapnames domain from site - edit a");
             Console.WriteLine("5 - create domains master table");
             Console.WriteLine("6 - english words");
             Console.WriteLine("7 - execute all");
